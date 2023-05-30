@@ -4,7 +4,8 @@ import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import 'virtual:uno.css'
 import 'virtual:unocss-devtools'
-import './index.css'
+import '@/styles/main.scss'
+import '@unocss/reset/normalize.css'
 
 import store from '@/states'
 
