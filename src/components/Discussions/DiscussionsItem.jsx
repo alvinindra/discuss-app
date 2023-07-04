@@ -6,9 +6,8 @@ export default function DiscussionsItem() {
       <div className="font-bold mb-3">Bagaimana cara menginstall NextJS versi 13?</div>
       <div className="flex mb-4">
         <img src="https://placehold.co/36x36" className="rounded-full me-3" alt="" />
-        <div>
-          <div className="mb-1 text-3.5">Leonanta Pramudya</div>
-          <div className="text-3 text-gray-500">Android Developer</div>
+        <div className="flex">
+          <div className="my-auto text-3.5 font-medium">Leonanta Pramudya</div>
         </div>
         <div className="ms-auto my-auto text-3.5 text-gray-500">2 hari yang lalu</div>
       </div>

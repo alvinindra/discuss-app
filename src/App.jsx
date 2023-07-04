@@ -1,5 +1,6 @@
 import HeaderBanner from '@/components/Base/HeaderBanner/HeaderBanner.jsx'
 import Discussions from '@/components/Discussions/Discussions'
+import Navigation from './components/Navigation/Navigation'
 
 function App() {
   return (
@@ -9,7 +10,9 @@ function App() {
           <HeaderBanner />
           <Discussions />
         </div>
-        <div className="sm:col-span-1 col-span-3 sm:ps-4 ps-8">Tag</div>
+        <div className="sm:col-span-1 col-span-3 sm:ps-4 ps-8">
+          <Navigation />
+        </div>
       </div>
     </div>
   )
