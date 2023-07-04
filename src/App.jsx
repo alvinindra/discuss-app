@@ -1,14 +1,15 @@
 import HeaderBanner from '@/components/Base/HeaderBanner/HeaderBanner.jsx'
+import Discussions from '@/components/Discussions/Discussions'
 
 function App() {
   return (
     <div className="bg-brand-secondary">
-      <div className="sm:container mx-auto py-[78px] min-h-100vh grid grid-cols-3">
-        <div className="col-span-3 sm:col-span-2">
+      <div className="sm:container mx-auto pt-[78px] min-h-100vh grid grid-cols-4">
+        <div className="sm:col-span-3 col-span-3 px-4">
           <HeaderBanner />
-          <p className="read-the-docs">This is example view of discuss app homepage</p>
+          <Discussions />
         </div>
-        <div className="col-span-3 ps-8 sm:col-span-1">Tag</div>
+        <div className="sm:col-span-1 col-span-3 sm:ps-4 ps-8">Tag</div>
       </div>
     </div>
   )
