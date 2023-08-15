@@ -1,6 +1,35 @@
+import { asyncSetAuthUser } from '@/states/auth/action'
+import { useReducer } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 export default function FormLogin() {
+  const initialFormLogin = {
+    email: '',
+    password: '',
+  }
+
+  const [formLogin, setFormLogin] = useReducer(
+    (state, newState) => ({
+      ...state,
+      ...newState,
+    }),
+    initialFormLogin
+  )
+
+  const dispatch = useDispatch()
+
+  const handleFormChange = (event) => {
+    const { name, value } = event.target
+    setFormLogin({ [name]: value })
+  }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+
+    dispatch(asyncSetAuthUser({ ...formLogin }))
+  }
+
   return (
     <div className="w-full bg-white rounded-lg shadow-md dark:border md:mt-0 sm:max-w-md xl:p-0">
       <div className="p-6 space-y-4 md:space-y-6 sm:p-8 ">
@@ -19,6 +48,7 @@ export default function FormLogin() {
               className="bg-gray-50 border border-solid border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
               placeholder={'Masukkan email'}
               required
+              onChange={handleFormChange}
             />
           </div>
           <div>
@@ -35,11 +65,13 @@ export default function FormLogin() {
               placeholder="••••••••"
               className="bg-gray-50 border border-solid border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
               required
+              onChange={handleFormChange}
             />
           </div>
           <button
             type="submit"
             className="w-full text-white bg-brand-primary font-medium rounded-lg text-sm px-5 py-2.5 text-center border-none cursor-pointer"
+            onClick={handleSubmit}
           >
             Submit
           </button>

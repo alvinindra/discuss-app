@@ -1,5 +1,6 @@
 import api from '@/utils/api'
 import { hideLoading, showLoading } from 'react-redux-loading-bar'
+import { toast } from 'react-toastify'
 
 const ActionType = {
   SET_USER_AUTH: 'SET_USER_AUTH',
@@ -31,7 +32,7 @@ const asyncSetAuthUser = ({ email, password }) => {
       const userAuth = await api.getOwnProfile()
       dispatch(setUserActionCreator(userAuth))
     } catch (error) {
-      alert(error.message)
+      toast.error(error.message)
     }
     dispatch(hideLoading())
   }
