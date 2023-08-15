@@ -55,6 +55,7 @@ const asyncUnsetAuthUser = () => {
   return (dispatch) => {
     dispatch(unsetUserAuthActionCreator())
     api.putAccessToken('')
+    localStorage.removeItem('accessToken')
   }
 }
 

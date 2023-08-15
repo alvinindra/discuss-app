@@ -1,9 +1,11 @@
 import { asyncSetAuthUser } from '@/states/auth/action'
 import { useReducer } from 'react'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
 export default function FormLogin() {
+  const navigate = useNavigate()
   const initialFormLogin = {
     email: '',
     password: '',
@@ -28,6 +30,7 @@ export default function FormLogin() {
     event.preventDefault()
 
     dispatch(asyncSetAuthUser({ ...formLogin }))
+    navigate('/')
   }
 
   return (

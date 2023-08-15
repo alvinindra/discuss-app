@@ -8,7 +8,7 @@ import { asyncGetAuthUser } from './states/auth/action'
 
 function App() {
   const dispatch = useDispatch()
-  const isAuthenticated = localStorage.getItem('accessToken')
+  const isAuthenticated = localStorage.getItem('accessToken') || null
 
   useEffect(() => {
     dispatch(asyncGetAuthUser())

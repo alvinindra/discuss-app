@@ -7,5 +7,5 @@ export default function Card({ className, children }) {
 
 Card.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.element,
+  children: PropTypes.arrayOf(PropTypes.element),
 }
