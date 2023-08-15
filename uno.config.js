@@ -8,6 +8,7 @@ export default defineConfig({
   theme: {
     colors: {
       brand: {
+        primary: '#66BD7E',
         secondary: '#F1F1F1',
       },
     },

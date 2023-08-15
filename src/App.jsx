@@ -1,22 +1,18 @@
-import HeaderBanner from '@/components/Base/HeaderBanner/HeaderBanner.jsx'
-import Discussions from '@/components/Discussions/Discussions'
-import Navigation from './components/Navigation/Navigation'
-import Tags from './components/Tags/Tags'
+import { Routes, Route } from 'react-router-dom'
+import HomePage from './pages/HomePage'
+import LoginPage from './pages/LoginPage'
+import RegisterPage from './pages/RegisterPage'
 
 function App() {
   return (
-    <div className="bg-brand-secondary">
-      <div className="sm:container mx-auto pt-[78px] min-h-100vh grid grid-cols-4">
-        <div className="sm:col-span-3 col-span-3 px-4">
-          <HeaderBanner />
-          <Discussions />
-        </div>
-        <div className="sm:col-span-1 col-span-3 sm:ps-4 ps-8">
-          <Navigation />
-          <Tags />
-        </div>
-      </div>
-    </div>
+    <Routes>
+      <Route>
+        <Route path="/*" element={<HomePage />}></Route>
+        <Route path="/" element={<HomePage />}></Route>
+        <Route path="/login" element={<LoginPage />}></Route>
+        <Route path="/register" element={<RegisterPage />}></Route>
+      </Route>
+    </Routes>
   )
 }
 

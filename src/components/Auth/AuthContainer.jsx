@@ -1,24 +1,21 @@
 import PropTypes from 'prop-types'
-import FormLogin from './FormLogin/FormLogin'
-import FormRegister from './FormRegister/FormRegister'
 
-export default function AuthContainer({ isLoginDisplay, onLoginSuccess }) {
+export default function AuthContainer({ formAuth }) {
   return (
-    <section className=" dark:bg-stone-800">
-      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-[75vh] lg:py-0">
+    <section className=" bg-brand-secondary min-h-screen dark:bg-stone-800 flex">
+      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-[75vh] lg:py-0 my-auto w-xl">
         <a
           href="/"
-          className="flex items-center mb-6 text-3xl font-semibold text-blue-400 dark:text-white"
+          className="flex items-center mb-6 text-4xl font-semibold text-brand-primary dark:text-white decoration-none"
         >
-          Catatanku
+          Discuss App
         </a>
-        {isLoginDisplay ? <FormLogin onLoginSuccess={onLoginSuccess} /> : <FormRegister />}
+        {formAuth}
       </div>
     </section>
   )
 }
 
 AuthContainer.propTypes = {
-  isLoginDisplay: PropTypes.bool.isRequired,
-  onLoginSuccess: PropTypes.func,
+  formAuth: PropTypes.element.isRequired,
 }
