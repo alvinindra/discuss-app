@@ -1,15 +1,20 @@
+import { useNavigate } from 'react-router-dom'
 import Card from '../Base/Card/Card'
 
 export default function DiscussionsItem() {
+  const navigate = useNavigate()
   return (
-    <Card className="border border-solid border-color-[#DADADA80] mb-5 last:mb-0">
+    <Card
+      className="border border-solid border-color-[#DADADA80] mb-5 last:mb-0 cursor-pointer"
+      onClick={() => navigate('/discussions/23')}
+    >
       <div className="font-bold mb-3">Bagaimana cara menginstall NextJS versi 13?</div>
       <div className="flex mb-4">
         <img src="https://placehold.co/36x36" className="rounded-full me-3" alt="" />
         <div className="flex">
           <div className="my-auto text-3.5 font-medium">Leonanta Pramudya</div>
         </div>
-        <div className="ms-auto my-auto text-3.5 text-gray-500">2 hari yang lalu</div>
+        <div className="ms-auto my-auto text-3.5 text-gray-500">2 days ago</div>
       </div>
       <div className="mb-3 text-gray-600 text-3.5">
         Halo teman-teman semuanya. Saya punya pertanyaan, tentang cara untuk menginstall NextJS
