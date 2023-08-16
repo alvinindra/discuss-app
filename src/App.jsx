@@ -3,6 +3,7 @@ import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import DetailPage from './pages/DetailPage'
+import CreatePage from './pages/CreatePage'
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { asyncGetAuthUser } from './states/auth/action'
@@ -21,6 +22,7 @@ function App() {
         <Route path="/*" element={<HomePage />}></Route>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/discussions/:id" element={<DetailPage />}></Route>
+        <Route path="/new" element={<CreatePage />}></Route>
         <Route path="/login" element={isAuthenticated ? <Navigate to="/" /> : <LoginPage />} />
         <Route
           path="/register"

@@ -3,6 +3,7 @@ import Card from '../Base/Card/Card'
 import { asyncUnsetAuthUser } from '@/states/auth/action'
 import { useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export default function Navigation() {
   const isAuthenticated = localStorage.getItem('accessToken') || null
@@ -39,24 +40,26 @@ export default function Navigation() {
           )}
         </div>
         {location.pathname !== '/' && (
-          <a href="/" className="decoration-none text-black">
+          <Link to="/" className="decoration-none text-black">
             <div className="font-medium text-center py-3 hover:bg-black hover:text-white border-rounded-2 transition-all">
               Home
             </div>
-          </a>
+          </Link>
         )}
-        <a href="/leaderboards" className="decoration-none text-black">
+        <Link to="/leaderboards" className="decoration-none text-black">
           <div className="font-medium text-center py-3 hover:bg-black hover:text-white border-rounded-2 transition-all">
             Leaderboards
           </div>
-        </a>
+        </Link>
       </Card>
-      <a
-        href="#"
-        className="decoration-none bg-brand-primary w-100 border-0 py-3 border-rounded-2 text-white font-semibold text-center mb-4"
-      >
-        New Thread
-      </a>
+      {location.pathname !== '/new' && (
+        <Link
+          to="/new"
+          className="decoration-none bg-brand-primary w-100 border-0 py-3 border-rounded-2 text-white font-semibold text-center mb-4"
+        >
+          New Discussion
+        </Link>
+      )}
     </div>
   )
 }
