@@ -2,12 +2,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import Card from '../Base/Card/Card'
 import { asyncUnsetAuthUser } from '@/states/auth/action'
 import { useNavigate } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 export default function Navigation() {
   const isAuthenticated = localStorage.getItem('accessToken') || null
   const { auth } = useSelector((states) => states)
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const location = useLocation()
 
   return (
     <div className="flex flex-wrap">
@@ -36,7 +38,14 @@ export default function Navigation() {
             </span>
           )}
         </div>
-        <a href="/" className="decoration-none text-black">
+        {location.pathname !== '/' && (
+          <a href="/" className="decoration-none text-black">
+            <div className="font-medium text-center py-3 hover:bg-black hover:text-white border-rounded-2 transition-all">
+              Home
+            </div>
+          </a>
+        )}
+        <a href="/leaderboards" className="decoration-none text-black">
           <div className="font-medium text-center py-3 hover:bg-black hover:text-white border-rounded-2 transition-all">
             Leaderboards
           </div>
