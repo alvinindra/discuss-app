@@ -4,13 +4,13 @@ import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import DetailPage from './pages/DetailPage'
 import CreatePage from './pages/CreatePage'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { asyncGetAuthUser } from './states/auth/action'
 
 function App() {
   const dispatch = useDispatch()
-  const isAuthenticated = localStorage.getItem('accessToken') || null
+  const auth = useSelector((states) => states.auth)
 
   useEffect(() => {
     dispatch(asyncGetAuthUser())
@@ -22,12 +22,9 @@ function App() {
         <Route path="/*" element={<HomePage />}></Route>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/discussions/:id" element={<DetailPage />}></Route>
-        <Route path="/new" element={<CreatePage />}></Route>
-        <Route path="/login" element={isAuthenticated ? <Navigate to="/" /> : <LoginPage />} />
-        <Route
-          path="/register"
-          element={isAuthenticated ? <Navigate to="/" /> : <RegisterPage />}
-        />
+        <Route path="/new" element={auth ? <CreatePage /> : <LoginPage />}></Route>
+        <Route path="/login" element={auth ? <Navigate to="/" /> : <LoginPage />} />
+        <Route path="/register" element={auth ? <Navigate to="/" /> : <RegisterPage />} />
       </Route>
     </Routes>
   )

@@ -6,7 +6,6 @@ import { useLocation } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
 export default function Navigation() {
-  const isAuthenticated = localStorage.getItem('accessToken') || null
   const auth = useSelector((states) => states.auth)
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -16,7 +15,7 @@ export default function Navigation() {
     <div className="flex flex-wrap">
       <Card className="mb-4 w-100">
         <div className="flex pb-4 border-b-1 border-0 border-solid mb-3 border-black">
-          {isAuthenticated ? (
+          {auth ? (
             <div className="flex flex-row">
               <img
                 src={auth?.avatar}
