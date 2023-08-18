@@ -9,8 +9,8 @@ export default function Discussions({ discussionsList }) {
           key={discuss.id}
           id={discuss.id}
           title={discuss.title}
-          name={discuss.user.name}
-          avatar={discuss.user.avatar}
+          name={discuss.user?.name}
+          avatar={discuss.user?.avatar}
           body={discuss.body}
           category={discuss.category}
           totalComments={discuss.totalComments}

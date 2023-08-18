@@ -1,5 +1,6 @@
 import api from '@/utils/api'
 import { hideLoading, showLoading } from 'react-redux-loading-bar'
+import { toast } from 'react-toastify'
 
 const ActionType = {
   RECEIVE_THREADS: 'RECEIVE_THREADS',
@@ -30,8 +31,9 @@ const asyncAddThread = ({ title, body, category = '' }) => {
     try {
       const thread = await api.createThread({ title, body, category })
       dispatch(addThreadActionCreator(thread))
+      toast.success('Discussion successfully created!')
     } catch (error) {
-      alert(error.message)
+      toast.error(error.message)
     }
     dispatch(hideLoading())
   }

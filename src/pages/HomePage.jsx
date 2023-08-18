@@ -20,7 +20,8 @@ function HomePage() {
   }, [dispatch])
 
   useEffect(() => {
-    setTags(discussions?.map((thread) => thread.category))
+    const uniqueCategories = new Set(discussions.map((thread) => thread.category))
+    setTags(Array.from(uniqueCategories))
   }, [discussions])
 
   const discussionsList = useMemo(() => {
@@ -32,7 +33,7 @@ function HomePage() {
       .map((discuss) => {
         return {
           ...discuss,
-          user: users.find((user) => user.id === discuss.ownerId),
+          user: users?.find((user) => user.id === discuss.ownerId),
           authUser: auth ? auth.id : null,
         }
       })
