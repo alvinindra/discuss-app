@@ -109,7 +109,7 @@ const api = (() => {
     return users
   }
 
-  const getAllThreads = async () => {
+  const getAllDiscussions = async () => {
     const response = await fetch(`${BASE_URL}/threads`)
 
     const responseJson = await response.json()
@@ -372,7 +372,7 @@ const api = (() => {
     login,
     getOwnProfile,
     getAllUsers,
-    getAllThreads,
+    getAllDiscussions,
     getThreadDetail,
     createThread,
     createThreadComment,

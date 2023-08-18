@@ -10,7 +10,11 @@ export default function Card({ className, children, onClick = null }) {
 }
 
 Card.propTypes = {
+  children: 'div',
+}
+
+Card.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.arrayOf(PropTypes.element),
+  children: PropTypes.node,
   onClick: PropTypes.func,
 }

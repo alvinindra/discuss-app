@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 export default function Navigation() {
   const isAuthenticated = localStorage.getItem('accessToken') || null
-  const { auth } = useSelector((states) => states)
+  const auth = useSelector((states) => states.auth)
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const location = useLocation()
