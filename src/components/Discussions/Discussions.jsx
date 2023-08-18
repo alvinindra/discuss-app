@@ -12,6 +12,7 @@ export default function Discussions({ discussionsList }) {
           name={discuss.user?.name}
           avatar={discuss.user?.avatar}
           body={discuss.body}
+          createdAt={discuss.createdAt}
           category={discuss.category}
           totalComments={discuss.totalComments}
           totalLike={discuss.upVotesBy.length}
