@@ -1,9 +1,11 @@
 import Card from '@/components/Base/Card/Card'
+import { Interweave } from 'interweave'
+import PropTypes from 'prop-types'
 
-export default function DiscussionsDetail() {
+export default function DiscussionsDetail({ threadDetail }) {
   return (
     <Card>
-      <h1>Kenapa Zanuar sering mengantuk?</h1>
+      <h1>{threadDetail?.title}</h1>
       <div className="flex flex-row">
         <div className="flex flex-row">
           <div className="my-auto">Created by</div>
@@ -21,39 +23,7 @@ export default function DiscussionsDetail() {
       </div>
       <hr />
       <div>
-        <p className="text-4.5">
-          Zanuar, sepertinya sering mengalami masalah mengantuk yang mengganggu kesehariannya. Ada
-          beberapa faktor yang mungkin berkontribusi pada kecenderungan Zanuar untuk merasa
-          mengantuk secara berlebihan. Pertama-tama, pola tidur yang tidak teratur atau kurang tidur
-          dapat menjadi salah satu penyebab utama. Jika Zanuar sering begadang atau tidur larut
-          malam, tubuhnya mungkin tidak mendapatkan waktu tidur yang cukup, sehingga mengakibatkan
-          rasa kantuk di siang hari.
-        </p>
-        <p className="text-4.5">
-          Selain itu, gaya hidup yang kurang sehat juga bisa mempengaruhi tingkat energi dan
-          kewaspadaan Zanuar. Konsumsi makanan yang tidak seimbang atau terlalu banyak mengandung
-          gula dan karbohidrat sederhana dapat menyebabkan fluktuasi kadar gula darah, yang pada
-          gilirannya bisa membuat Zanuar merasa lebih mudah mengantuk. Kurangnya aktivitas fisik
-          juga dapat berperan dalam membuat tubuhnya kurang bertenaga dan mudah merasa lelah.
-        </p>
-        <p className="text-4.5">
-          Selain faktor-faktor internal, lingkungan tempat Zanuar beraktivitas juga dapat
-          berpengaruh. Ruangan yang kurang terang atau kurang ventilasi bisa membuat suasana menjadi
-          lebih mengantuk. Suhu yang terlalu nyaman atau udara yang kurang segar bisa memicu
-          perasaan ingin tidur. Selain itu, jika Zanuar terpapar dengan rutinitas yang monoton atau
-          aktivitas yang membosankan, hal ini juga bisa membuatnya lebih cenderung merasa mengantuk.
-        </p>
-        <p className="text-4.5">
-          Stres dan kelelahan mental juga mungkin menjadi faktor lain yang membuat Zanuar sering
-          merasa mengantuk. Jika ia memiliki banyak tanggung jawab atau masalah pribadi yang
-          membebani pikirannya, ini bisa mengganggu kualitas tidur malamnya dan akhirnya memicu
-          kelelahan berlebih di siang hari. Untuk mengatasi masalah mengantuk ini, Zanuar perlu
-          memperhatikan pola tidurnya, menjaga gaya hidup sehat dengan makan bergizi dan
-          berolahraga, menciptakan lingkungan kerja atau belajar yang nyaman, serta mencari cara
-          untuk mengelola stres secara efektif. Jika masalah ini terus berlanjut, berkonsultasilah
-          dengan profesional medis untuk mendapatkan nasihat lebih lanjut dan mungkin pemeriksaan
-          kesehatan lebih mendalam.
-        </p>
+        <Interweave content={threadDetail?.body} />
       </div>
       <hr />
       <div className="flex flex-row">
@@ -90,4 +60,8 @@ export default function DiscussionsDetail() {
       </div>
     </Card>
   )
+}
+
+DiscussionsDetail.propTypes = {
+  threadDetail: PropTypes.object,
 }
