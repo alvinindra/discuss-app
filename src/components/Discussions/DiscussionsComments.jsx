@@ -1,5 +1,6 @@
 import Card from '@/components/Base/Card/Card'
 import DiscussionsCommentsItem from './DiscussionsCommentsItem'
+import PropTypes from 'prop-types'
 
 export default function DiscussionsComments({ discussDetail }) {
   return (
