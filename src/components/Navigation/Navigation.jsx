@@ -4,6 +4,7 @@ import { asyncUnsetAuthUser } from '@/states/auth/action'
 import { useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import clsx from 'clsx'
 
 export default function Navigation() {
   const auth = useSelector((states) => states.auth)
@@ -46,7 +47,12 @@ export default function Navigation() {
           </Link>
         )}
         <Link to="/leaderboards" className="decoration-none text-black">
-          <div className="font-medium text-center py-3 hover:bg-black hover:text-white border-rounded-2 transition-all">
+          <div
+            className={clsx(
+              'font-medium text-center py-3 hover:bg-black hover:text-white border-rounded-2 transition-all',
+              location.pathname === '/leaderboards' && 'bg-black text-white'
+            )}
+          >
             Leaderboards
           </div>
         </Link>
