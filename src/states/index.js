@@ -3,6 +3,7 @@ import authUserReducer from './auth/reducer'
 import usersReducer from './users/reducer'
 import discussionsReducer from './discussions/reducer'
 import discussDetailReducer from './discuss-detail/reducer'
+import leaderboardsReducer from './leaderboards/reducer'
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     users: usersReducer,
     discussions: discussionsReducer,
     discussDetail: discussDetailReducer,
+    leaderboards: leaderboardsReducer,
   },
 })
 

@@ -7,6 +7,7 @@ import CreatePage from './pages/CreatePage'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { asyncGetAuthUser } from './states/auth/action'
+import LeaderboardsPage from './pages/LeaderboardsPage'
 
 function App() {
   const dispatch = useDispatch()
@@ -21,6 +22,7 @@ function App() {
       <Route>
         <Route path="/*" element={<HomePage />}></Route>
         <Route path="/" element={<HomePage />}></Route>
+        <Route path="/leaderboards" element={<LeaderboardsPage />} />
         <Route path="/discussions/:id" element={<DetailPage />}></Route>
         <Route path="/new" element={auth ? <CreatePage /> : <LoginPage />}></Route>
         <Route path="/login" element={auth ? <Navigate to="/" /> : <LoginPage />} />
