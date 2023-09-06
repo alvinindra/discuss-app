@@ -17,7 +17,7 @@ export default function DiscussionsItem({
   totalDislike,
 }) {
   return (
-    <Card className="border border-solid border-color-[#DADADA80] mb-5 last:mb-0 cursor-pointer">
+    <Card className="border border-solid border-color-[#DADADA80] mb-5 last:mb-0 cursor-pointer hover:bg-light-300">
       <Link to={`/discussions/${id}`} className="no-underline text-inherit">
         <div className="flex mb-3">
           <div className="font-bold my-auto">{title}</div>
