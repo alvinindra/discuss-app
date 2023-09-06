@@ -1,6 +1,5 @@
 import Card from '@/components/Base/Card/Card'
 import Navigation from '@/components/Navigation/Navigation'
-import Tags from '@/components/Tags/Tags'
 import { asyncAddThread } from '@/states/discussions/action'
 import { useReducer } from 'react'
 import { useDispatch } from 'react-redux'
@@ -83,7 +82,6 @@ function CreatePage() {
         </div>
         <div className="sm:col-span-1 col-span-3 sm:ps-4 ps-8">
           <Navigation />
-          <Tags />
         </div>
       </div>
     </div>
