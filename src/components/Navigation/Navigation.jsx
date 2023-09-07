@@ -15,11 +15,11 @@ export default function Navigation() {
 
   return (
     <>
-      <div className="hidden md:flex flex-wrap">
+      <div className="hidden lg:flex flex-wrap">
         <Card className="mb-4 w-100">
           <div className="flex pb-4 border-b-1 border-0 border-solid mb-3 border-black">
             {auth ? (
-              <div className="flex flex-row">
+              <div className="flex flex-col xl:flex-row gap-2">
                 <img
                   src={auth?.avatar}
                   className="rounded-full me-3 w-36px h-36px"
@@ -62,7 +62,7 @@ export default function Navigation() {
         {location.pathname !== '/new' && (
           <Link
             to="/new"
-            className="decoration-none bg-brand-primary w-100 border-0 py-3 border-rounded-2 text-white font-semibold text-center mb-4"
+            className="flex justify-center decoration-none bg-brand-primary w-100 border-0 py-3 border-rounded-2 text-white font-semibold text-center mb-4"
           >
             New Discussion
           </Link>

@@ -17,25 +17,27 @@ export default function DiscussionsItem({
   totalDislike,
 }) {
   return (
-    <Card className="border border-solid border-color-[#DADADA80] mb-5 last:mb-0 cursor-pointer hover:bg-light-300 px-4 sm:px-6">
+    <Card className="border border-solid border-color-[#DADADA80] mb-5 last:mb-0 cursor-pointer hover:bg-light-300 px-4 lg:px-6">
       <Link to={`/discussions/${id}`} className="no-underline text-inherit">
-        <div className="flex mb-3">
-          <div className="font-bold my-auto">{title}</div>
+        <div className="flex flex-wrap lg:flex-row mb-3 gap-3">
+          <div className="font-bold my-auto text-3.5 lg:text-4 lg:mb-auto">{title}</div>
           <button
-            className="ms-2 my-auto last:me-0 bg-transparent rounded cursor-pointer border-1 border-solid border-black"
+            className="lg:mt-0 lg:ms-2 my-auto last:me-0 bg-transparent rounded cursor-pointer border-1 border-solid border-black"
             type="button"
           >
             #{category}
           </button>
         </div>
         <div className="flex mb-4">
-          <img src={avatar} className="rounded-full me-3 w-36px h-36px" alt="" />
+          <img src={avatar} className="rounded-full me-2 lg:me-3 w-36px h-36px" alt="" />
           <div className="flex">
-            <div className="my-auto text-3.5 font-medium">{name}</div>
+            <div className="my-auto text-3 lg:text-3.5 font-medium">{name}</div>
           </div>
-          <div className="ms-auto my-auto text-3.5 text-gray-500 ">{postedAt(createdAt)}</div>
+          <div className="ms-auto my-auto text-3 lg:text-3.5 text-gray-500 ">
+            {postedAt(createdAt)}
+          </div>
         </div>
-        <div className="mb-3 text-gray-600 text-3.5 line-clamp-4">
+        <div className="mb-3 text-gray-600 text-3.5 line-clamp-4 leading-20px">
           <Interweave content={body} />
         </div>
         <div className="flex">

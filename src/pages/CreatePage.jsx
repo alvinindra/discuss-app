@@ -35,14 +35,14 @@ function CreatePage() {
 
   return (
     <div className="bg-brand-secondary">
-      <div className="sm:container sm:px-4 mx-auto pt-[48px] min-h-100vh grid grid-cols-4">
-        <div className="sm:col-span-3 col-span-3 px-4">
+      <div className="lg:container lg:px-4 mx-auto pt-[48px] min-h-100vh grid grid-cols-4">
+        <div className="lg:col-span-3 col-span-3 px-4">
           <Card>
             <h1>Create new discussion</h1>
             <form className="flex flex-col" onSubmit={handleSubmitCreateDiscuss}>
               <div className="mb-6">
                 <input
-                  className="bg-gray-50 border border-solid border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                  className="bg-gray-50 border border-solid border-gray-300 text-gray-900 lg:text-sm rounded-lg block w-full p-2.5"
                   type="text"
                   name="title"
                   placeholder="Title"
@@ -52,7 +52,7 @@ function CreatePage() {
               </div>
               <div className="mb-6">
                 <input
-                  className="bg-gray-50 border border-solid border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                  className="bg-gray-50 border border-solid border-gray-300 text-gray-900 lg:text-sm rounded-lg block w-full p-2.5"
                   type="text"
                   name="category"
                   placeholder="Category"
@@ -61,7 +61,7 @@ function CreatePage() {
               </div>
               <div className="mb-6">
                 <textarea
-                  className="bg-gray-50 border border-solid border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                  className="bg-gray-50 border border-solid border-gray-300 text-gray-900 lg:text-sm rounded-lg block w-full p-2.5"
                   placeholder="Content"
                   name="body"
                   rows={5}
@@ -80,7 +80,7 @@ function CreatePage() {
             </form>
           </Card>
         </div>
-        <div className="sm:col-span-1 col-span-3 sm:ps-4 ps-8">
+        <div className="lg:col-span-1 col-span-3 lg:ps-4 ps-8">
           <Navigation />
         </div>
       </div>

@@ -11,11 +11,11 @@ export default function NavigationMobile() {
   const location = useLocation()
 
   return (
-    <div className="block md:hidden fixed bottom-0 left-0 right-0">
+    <div className="block lg:hidden fixed bottom-0 left-0 right-0 shadow-[0_8px_20px_rgb(0,0,0,0.12)]">
       <nav className="grid grid-cols-3">
         <button
           type="button"
-          className="bg-white border-0 items-center justify-center flex flex-col px-8px pt-16px pb-8px"
+          className="bg-white border-0 items-center justify-center flex flex-col px-8px pt-16px pb-8px cursor-pointer"
           onClick={() => navigate('/')}
         >
           <div
@@ -28,7 +28,7 @@ export default function NavigationMobile() {
         </button>
         <button
           type="button"
-          className="bg-white border-0 items-center justify-center flex flex-col px-8px pt-16px pb-8px"
+          className="bg-white border-0 items-center justify-center flex flex-col px-8px pt-16px pb-8px cursor-pointer"
           onClick={() => navigate('/leaderboards')}
         >
           <div
@@ -44,7 +44,7 @@ export default function NavigationMobile() {
         {auth ? (
           <button
             type="button"
-            className="bg-white border-0 items-center justify-center flex flex-col px-8px pt-16px pb-8px"
+            className="bg-white border-0 items-center justify-center flex flex-col px-8px pt-16px pb-8px cursor-pointer"
             onClick={() => dispatch(asyncUnsetAuthUser())}
           >
             <div className="i-mdi:logout text-24px mb-2 text-gray-500"></div>
