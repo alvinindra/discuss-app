@@ -15,7 +15,7 @@ export default function Tags({ tags, selectedCategory, setSelectedCategory }) {
     <div>
       <Card>
         <div className="mb-4 text-4 text-center font-semibold">Tags</div>
-        <div className="flex">
+        <div className="flex flex-wrap gap-y-4 gap-x-2">
           {tags?.map((tag) => (
             <TagsItem
               title={tag}
