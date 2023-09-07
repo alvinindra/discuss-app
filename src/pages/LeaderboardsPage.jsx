@@ -1,5 +1,6 @@
 import Card from '@/components/Base/Card/Card'
 import HeaderBanner from '@/components/Base/HeaderBanner/HeaderBanner'
+import MainLayout from '@/components/Layout/MainLayout'
 import Navigation from '@/components/Navigation/Navigation'
 import { asyncReceiveLeaderboards } from '@/states/leaderboards/action'
 import { useEffect } from 'react'
@@ -14,9 +15,9 @@ function LeaderboardsPage() {
   }, [dispatch])
 
   return (
-    <div className="bg-brand-secondary">
-      <div className="sm:container mx-auto pt-[48px] min-h-100vh grid grid-cols-4">
-        <div className="sm:col-span-3 col-span-3 px-4">
+    <MainLayout
+      content={
+        <>
           <HeaderBanner />
           <Card className="px-14 mt-5 mb-40px">
             <div className="text-center mb-5">
@@ -36,12 +37,10 @@ function LeaderboardsPage() {
               </div>
             ))}
           </Card>
-        </div>
-        <div className="sm:col-span-1 col-span-3 sm:ps-4 ps-8">
-          <Navigation />
-        </div>
-      </div>
-    </div>
+        </>
+      }
+      sideContent={<Navigation />}
+    />
   )
 }
 

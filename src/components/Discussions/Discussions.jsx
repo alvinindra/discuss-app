@@ -3,7 +3,7 @@ import DiscussionsItem from './DiscussionsItem'
 import PropTypes from 'prop-types'
 export default function Discussions({ discussionsList }) {
   return (
-    <Card className="my-6">
+    <Card className="px-3 sm:px-6 my-6">
       {discussionsList.map((discuss) => (
         <DiscussionsItem
           key={discuss.id}
