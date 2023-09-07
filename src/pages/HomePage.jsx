@@ -45,6 +45,12 @@ function HomePage() {
       content={
         <>
           <HeaderBanner />
+          <Tags
+            className="block lg:hidden mt-6"
+            tags={tags}
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+          />
           <Discussions discussionsList={discussionsList} />
         </>
       }
@@ -52,6 +58,7 @@ function HomePage() {
         <>
           <Navigation />
           <Tags
+            className="hidden lg:block"
             tags={tags}
             selectedCategory={selectedCategory}
             setSelectedCategory={setSelectedCategory}
