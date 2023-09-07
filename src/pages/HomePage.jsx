@@ -1,5 +1,6 @@
 import HeaderBanner from '@/components/Base/HeaderBanner/HeaderBanner.jsx'
 import Discussions from '@/components/Discussions/Discussions'
+import MainLayout from '@/components/Layout/MainLayout'
 import Navigation from '@/components/Navigation/Navigation'
 import Tags from '@/components/Tags/Tags'
 import { asyncPopulateUsersAndDiscussions } from '@/states/shared/action'
@@ -40,22 +41,31 @@ function HomePage() {
   }, [auth, discussions, selectedCategory, users])
 
   return (
-    <div className="bg-brand-secondary">
-      <div className="sm:container sm:px-4 mx-auto pt-[48px] min-h-100vh grid grid-cols-4">
-        <div className="sm:col-span-3 col-span-3 px-4">
+    <MainLayout
+      content={
+        <>
           <HeaderBanner />
-          <Discussions discussionsList={discussionsList} />
-        </div>
-        <div className="sm:col-span-1 col-span-3 sm:ps-4 ps-8">
-          <Navigation />
           <Tags
+            className="block lg:hidden mt-6"
             tags={tags}
             selectedCategory={selectedCategory}
             setSelectedCategory={setSelectedCategory}
           />
-        </div>
-      </div>
-    </div>
+          <Discussions discussionsList={discussionsList} />
+        </>
+      }
+      sideContent={
+        <>
+          <Navigation />
+          <Tags
+            className="hidden lg:block"
+            tags={tags}
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+          />
+        </>
+      }
+    />
   )
 }
 

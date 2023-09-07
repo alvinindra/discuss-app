@@ -26,7 +26,7 @@ export default function DiscussionsDetail({ discussDetail }) {
         </div>
       </div>
       <hr />
-      <div>
+      <div className="leading-20px">
         <Interweave content={discussDetail?.body} />
       </div>
       <hr />

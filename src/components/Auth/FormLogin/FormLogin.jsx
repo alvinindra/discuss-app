@@ -30,16 +30,15 @@ export default function FormLogin() {
     event.preventDefault()
 
     dispatch(asyncSetAuthUser({ ...formLogin }))
-    navigate('/')
   }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-md dark:border md:mt-0 sm:max-w-md xl:p-0">
-      <div className="p-6 space-y-4 md:space-y-6 sm:p-8 ">
-        <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
+    <div className="w-full bg-white rounded-lg shadow-md dark:border lg:mt-0 lg:max-w-md xl:p-0">
+      <div className="p-6 space-y-4 lg:space-y-6 lg:p-8 ">
+        <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 lg:text-2xl">
           Login
         </h1>
-        <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
+        <form className="space-y-4 lg:space-y-6" onSubmit={handleSubmit}>
           <div>
             <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">
               Email
@@ -48,7 +47,7 @@ export default function FormLogin() {
               type="email"
               name="email"
               id="email"
-              className="bg-gray-50 border border-solid border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+              className="bg-gray-50 border border-solid border-gray-300 text-gray-900 lg:text-sm rounded-lg block w-full p-2.5"
               placeholder={'Masukkan email'}
               required
               onChange={handleFormChange}
@@ -66,7 +65,7 @@ export default function FormLogin() {
               name="password"
               id="password"
               placeholder="••••••••"
-              className="bg-gray-50 border border-solid border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+              className="bg-gray-50 border border-solid border-gray-300 text-gray-900 lg:text-sm rounded-lg block w-full p-2.5"
               required
               onChange={handleFormChange}
             />
