@@ -18,7 +18,7 @@ function LeaderboardsPage() {
       <div className="sm:container mx-auto pt-[48px] min-h-100vh grid grid-cols-4">
         <div className="sm:col-span-3 col-span-3 px-4">
           <HeaderBanner />
-          <Card className="px-14 mt-5">
+          <Card className="px-14 mt-5 mb-40px">
             <div className="text-center mb-5">
               <h2 className="mb-1">Leaderboards</h2>
               <div>Top 10 Discussion Users</div>
