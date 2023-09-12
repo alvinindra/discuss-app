@@ -171,7 +171,7 @@ const asyncUpVoteComment = (commentId) => {
     const { auth, discussDetail } = getState()
     dispatch(upVoteCommentActionCreator(auth.id, commentId))
     try {
-      await api.upVoteComment({ discussId: discussDetail.id, commentId })
+      await api.upVoteComment({ threadId: discussDetail.id, commentId })
     } catch (error) {
       toast.error(error.message)
     }
@@ -185,7 +185,7 @@ const asyncDownVoteComment = (commentId) => {
     const { auth, discussDetail } = getState()
     dispatch(downVoteCommentActionCreator(auth.id, commentId))
     try {
-      await api.downVoteComment({ discussId: discussDetail.id, commentId })
+      await api.downVoteComment({ threadId: discussDetail.id, commentId })
     } catch (error) {
       toast.error(error.message)
     }
@@ -199,7 +199,7 @@ const asyncNeutralVoteComment = (commentId) => {
     const { auth, discussDetail } = getState()
     dispatch(neutralVoteCommentActionCreator(auth.id, commentId))
     try {
-      await api.neutralizeVoteComment({ discussId: discussDetail.id, commentId })
+      await api.neutralizeVoteComment({ threadId: discussDetail.id, commentId })
     } catch (error) {
       toast.error(error.message)
     }

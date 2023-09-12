@@ -1,23 +1,61 @@
 import Card from '@/components/Base/Card/Card'
 import DiscussionsCommentsItem from './DiscussionsCommentsItem'
 import PropTypes from 'prop-types'
+import { useState } from 'react'
+import { asyncAddComment } from '@/states/discuss-detail/action'
+import { useDispatch } from 'react-redux'
 
 export default function DiscussionsComments({ discussDetail }) {
+  const [comment, setComment] = useState('')
+  const dispatch = useDispatch()
+
+  const handleSubmitComment = (event) => {
+    event.preventDefault()
+    dispatch(asyncAddComment(comment))
+    setComment('')
+  }
+
   return (
-    <Card className="my-8">
-      <h4>Comments ({discussDetail?.comments.length})</h4>
-      {discussDetail?.comments.map((comment) => (
-        <DiscussionsCommentsItem
-          key={comment.id}
-          name={comment.owner.name}
-          avatar={comment.owner.avatar}
-          content={comment.content}
-          createdAt={comment.createdAt}
-          totalLike={comment.upVotesBy.length}
-          totalDislike={comment.downVotesBy.length}
-        />
-      ))}
-    </Card>
+    <>
+      <Card className="my-6">
+        <h4 className="mt-0">Leave a comment</h4>
+        <form onSubmit={handleSubmitComment}>
+          <div className="flex flex-col">
+            <textarea
+              className="bg-gray-50 border border-solid border-gray-300 text-gray-900 lg:text-sm rounded-lg block w-full p-2.5"
+              placeholder="..."
+              name="comment"
+              rows={5}
+              required
+              onChange={(e) => setComment(e.target.value)}
+            ></textarea>
+            <div className="ms-auto mt-6">
+              <button
+                type="submit"
+                className="decoration-none bg-brand-primary w-100 border-0 py-3 border-rounded-2 text-white font-semibold text-center cursor-pointer"
+              >
+                Send
+              </button>
+            </div>
+          </div>
+        </form>
+      </Card>
+      <Card className="my-6">
+        <h4>Comments ({discussDetail?.comments.length})</h4>
+        {discussDetail?.comments.map((comment) => (
+          <DiscussionsCommentsItem
+            key={comment.id}
+            commentId={comment.id}
+            name={comment.owner.name}
+            avatar={comment.owner.avatar}
+            content={comment.content}
+            createdAt={comment.createdAt}
+            upVotesBy={comment.upVotesBy}
+            downVotesBy={comment.downVotesBy}
+          />
+        ))}
+      </Card>
+    </>
   )
 }
 
