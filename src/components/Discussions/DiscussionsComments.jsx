@@ -3,16 +3,23 @@ import DiscussionsCommentsItem from './DiscussionsCommentsItem'
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { asyncAddComment } from '@/states/discuss-detail/action'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 export default function DiscussionsComments({ discussDetail }) {
   const [comment, setComment] = useState('')
+  const auth = useSelector((states) => states.auth)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const handleSubmitComment = (event) => {
     event.preventDefault()
-    dispatch(asyncAddComment(comment))
-    setComment('')
+    if (auth) {
+      dispatch(asyncAddComment(comment))
+      setComment('')
+    } else {
+      navigate('/login')
+    }
   }
 
   return (
