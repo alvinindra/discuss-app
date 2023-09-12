@@ -1,19 +1,26 @@
+import { postedAt } from '@/utils'
 import Card from '../Base/Card/Card'
+import { Interweave } from 'interweave'
 
-export default function DiscussionsCommentsItem() {
+export default function DiscussionsCommentsItem({
+  name,
+  avatar,
+  content,
+  createdAt,
+  totalLike,
+  totalDislike,
+}) {
   return (
     <Card className="border border-solid border-color-[#DADADA80] mb-5 last:mb-0">
       <div className="flex mb-4">
-        <img src="https://placehold.co/36x36" className="rounded-full me-3" alt="" />
+        <img src={avatar} className="rounded-full me-3 w-24px h-24px" alt="" />
         <div className="flex">
-          <div className="my-auto text-3.5 font-medium">Leonanta Pramudya</div>
+          <div className="my-auto text-3.5 font-medium">{name}</div>
         </div>
-        <div className="ms-auto my-auto text-3.5 text-gray-500">2 days ago</div>
+        <div className="ms-auto my-auto text-3.5 text-gray-500">{postedAt(createdAt)}</div>
       </div>
       <div className="mb-3 text-gray-600 text-3.5">
-        Halo teman-teman semuanya. Saya punya pertanyaan, tentang cara untuk menginstall NextJS
-        versi 13, yang dimana NextJS 13 adalah versi terbaru. Saya mempunyai masalah dengan
-        instalasi yang terbaru, saya menda.....
+        <Interweave content={content} />
       </div>
       <div className="flex flex-row">
         <div className="flex cursor-pointer">
@@ -29,7 +36,7 @@ export default function DiscussionsCommentsItem() {
             ></path>
           </svg>
           {/* <svg xmlns="http://www.w3.org/2000/svg" width="1.25em" height="1.25em" viewBox="0 0 24 24"><path d="M4 21h1V8H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2zM20 8h-7l1.122-3.368A2 2 0 0 0 12.225 2H12L7 7.438V21h11l3.912-8.596L22 12v-2a2 2 0 0 0-2-2z" fill="#66bd73"></path></svg> */}
-          <span className="ms-1 my-auto text-4 fw-500 mt-0.5">10</span>
+          <span className="ms-1 my-auto text-4 fw-500 mt-0.5">{totalLike}</span>
         </div>
         <div className="flex ms-4 cursor-pointer">
           <svg
@@ -44,7 +51,7 @@ export default function DiscussionsCommentsItem() {
             ></path>
           </svg>
           {/* <svg xmlns="http://www.w3.org/2000/svg" width="1.25em" height="1.25em" viewBox="0 0 24 24"><path d="M20 3h-1v13h1a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM4 16h7l-1.122 3.368A2 2 0 0 0 11.775 22H12l5-5.438V3H6l-3.937 8.649l-.063.293V14a2 2 0 0 0 2 2z" fill="#66bd73"></path></svg> */}
-          <span className="ms-1 my-auto text-4 fw-500 mt-0.5">3</span>
+          <span className="ms-1 my-auto text-4 fw-500 mt-0.5">{totalDislike}</span>
         </div>
       </div>
     </Card>
