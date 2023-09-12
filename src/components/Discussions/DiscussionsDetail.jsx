@@ -32,9 +32,10 @@ export default function DiscussionsDetail({ discussDetail }) {
       </div>
       <hr />
       <DiscussionsVote
+        discussId={discussDetail?.id || ''}
         upVotesBy={discussDetail?.upVotesBy || []}
         downVotesBy={discussDetail?.downVotesBy || []}
-        isDetailDiscuss
+        isDiscussDetail
       />
     </Card>
   )

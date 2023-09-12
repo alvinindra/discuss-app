@@ -109,13 +109,13 @@ const asyncReceiveDiscussDetail = (discussId) => {
   }
 }
 
-const asyncUpVoteDiscuss = () => {
+const asyncUpVoteDiscuss = (discussId) => {
   return async (dispatch, getState) => {
     dispatch(showLoading())
-    const { auth, discussDetail } = getState()
+    const { auth } = getState()
     dispatch(upVoteDiscussActionCreator(auth.id))
     try {
-      await api.upVoteThread(discussDetail.id)
+      await api.upVoteThread(discussId)
     } catch (error) {
       toast.error(error.message)
     }
@@ -123,13 +123,13 @@ const asyncUpVoteDiscuss = () => {
   }
 }
 
-const asyncDownVoteDiscuss = () => {
+const asyncDownVoteDiscuss = (discussId) => {
   return async (dispatch, getState) => {
     dispatch(showLoading())
-    const { auth, discussDetail } = getState()
+    const { auth } = getState()
     dispatch(downVoteDiscussActionCreator(auth.id))
     try {
-      await api.downVoteThread(discussDetail.id)
+      await api.downVoteThread(discussId)
     } catch (error) {
       toast.error(error.message)
     }

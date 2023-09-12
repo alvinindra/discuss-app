@@ -15,8 +15,8 @@ export default function Discussions({ discussionsList }) {
           createdAt={discuss.createdAt}
           category={discuss.category}
           totalComments={discuss.totalComments}
-          totalLike={discuss.upVotesBy.length}
-          totalDislike={discuss.downVotesBy.length}
+          upVotesBy={discuss.upVotesBy}
+          downVotesBy={discuss.downVotesBy}
         />
       ))}
     </Card>
