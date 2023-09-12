@@ -112,10 +112,10 @@ const asyncReceiveDiscussDetail = (discussId) => {
 const asyncUpVoteDiscuss = () => {
   return async (dispatch, getState) => {
     dispatch(showLoading())
-    const { authUser, discussDetail } = getState()
-    dispatch(upVoteDiscussActionCreator(authUser.id))
+    const { auth, discussDetail } = getState()
+    dispatch(upVoteDiscussActionCreator(auth.id))
     try {
-      await api.upVoteDiscuss(discussDetail.id)
+      await api.upVoteThread(discussDetail.id)
     } catch (error) {
       toast.error(error.message)
     }
@@ -126,10 +126,10 @@ const asyncUpVoteDiscuss = () => {
 const asyncDownVoteDiscuss = () => {
   return async (dispatch, getState) => {
     dispatch(showLoading())
-    const { authUser, discussDetail } = getState()
-    dispatch(downVoteDiscussActionCreator(authUser.id))
+    const { auth, discussDetail } = getState()
+    dispatch(downVoteDiscussActionCreator(auth.id))
     try {
-      await api.downVoteDiscuss(discussDetail.id)
+      await api.downVoteThread(discussDetail.id)
     } catch (error) {
       toast.error(error.message)
     }
@@ -140,10 +140,10 @@ const asyncDownVoteDiscuss = () => {
 const asyncNeutralVoteDiscuss = () => {
   return async (dispatch, getState) => {
     dispatch(showLoading())
-    const { authUser, discussDetail } = getState()
-    dispatch(neutralVoteDiscussActionCreator(authUser.id))
+    const { auth, discussDetail } = getState()
+    dispatch(neutralVoteDiscussActionCreator(auth.id))
     try {
-      await api.neutralizeVoteDiscuss(discussDetail.id)
+      await api.neutralizeVoteThread(discussDetail.id)
     } catch (error) {
       toast.error(error.message)
     }
@@ -156,7 +156,7 @@ const asyncAddComment = (content) => {
     dispatch(showLoading())
     const { discussDetail } = getState()
     try {
-      const comment = await api.createDiscussComment({ id: discussDetail.id, content })
+      const comment = await api.createThreadComment({ id: discussDetail.id, content })
       dispatch(addCommentActionCreator(comment))
     } catch (error) {
       toast.error(error.message)
@@ -168,8 +168,8 @@ const asyncAddComment = (content) => {
 const asyncUpVoteComment = (commentId) => {
   return async (dispatch, getState) => {
     dispatch(showLoading())
-    const { authUser, discussDetail } = getState()
-    dispatch(upVoteCommentActionCreator(authUser.id, commentId))
+    const { auth, discussDetail } = getState()
+    dispatch(upVoteCommentActionCreator(auth.id, commentId))
     try {
       await api.upVoteComment({ discussId: discussDetail.id, commentId })
     } catch (error) {
@@ -182,8 +182,8 @@ const asyncUpVoteComment = (commentId) => {
 const asyncDownVoteComment = (commentId) => {
   return async (dispatch, getState) => {
     dispatch(showLoading())
-    const { authUser, discussDetail } = getState()
-    dispatch(downVoteCommentActionCreator(authUser.id, commentId))
+    const { auth, discussDetail } = getState()
+    dispatch(downVoteCommentActionCreator(auth.id, commentId))
     try {
       await api.downVoteComment({ discussId: discussDetail.id, commentId })
     } catch (error) {
@@ -196,8 +196,8 @@ const asyncDownVoteComment = (commentId) => {
 const asyncNeutralVoteComment = (commentId) => {
   return async (dispatch, getState) => {
     dispatch(showLoading())
-    const { authUser, discussDetail } = getState()
-    dispatch(neutralVoteCommentActionCreator(authUser.id, commentId))
+    const { auth, discussDetail } = getState()
+    dispatch(neutralVoteCommentActionCreator(auth.id, commentId))
     try {
       await api.neutralizeVoteComment({ discussId: discussDetail.id, commentId })
     } catch (error) {
