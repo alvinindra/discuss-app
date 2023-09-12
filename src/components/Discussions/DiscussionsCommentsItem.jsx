@@ -1,6 +1,7 @@
 import { postedAt } from '@/utils'
 import Card from '../Base/Card/Card'
 import { Interweave } from 'interweave'
+import PropTypes from 'prop-types'
 
 export default function DiscussionsCommentsItem({
   name,
@@ -56,4 +57,13 @@ export default function DiscussionsCommentsItem({
       </div>
     </Card>
   )
+}
+
+DiscussionsCommentsItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+  createdAt: PropTypes.string.isRequired,
+  totalLike: PropTypes.number.isRequired,
+  totalDislike: PropTypes.number.isRequired,
 }
