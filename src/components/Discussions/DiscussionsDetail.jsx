@@ -42,5 +42,5 @@ export default function DiscussionsDetail({ discussDetail }) {
 }
 
 DiscussionsDetail.propTypes = {
-  threadDetail: PropTypes.object,
+  discussDetail: PropTypes.object,
 }

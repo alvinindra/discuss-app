@@ -60,4 +60,5 @@ DiscussionsVote.propTypes = {
   upVotesBy: PropTypes.array.isRequired,
   downVotesBy: PropTypes.array.isRequired,
   discussId: PropTypes.string.isRequired,
+  isDiscussDetail: PropTypes.bool,
 }

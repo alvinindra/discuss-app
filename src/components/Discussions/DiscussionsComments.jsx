@@ -67,5 +67,5 @@ export default function DiscussionsComments({ discussDetail }) {
 }
 
 DiscussionsComments.propTypes = {
-  threadDetail: PropTypes.object,
+  discussDetail: PropTypes.object,
 }
