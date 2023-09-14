@@ -1,15 +1,27 @@
+import { useSearchParams } from 'react-router-dom'
 import Card from '../Base/Card/Card'
 import TagsItem from './TagsItem'
 import PropTypes from 'prop-types'
+import { useEffect } from 'react'
 
 export default function Tags({ tags, selectedCategory, setSelectedCategory, className }) {
+  const [tagsParams, setTagsParams] = useSearchParams()
+
   const handleSelectCategory = (tag) => {
     if (selectedCategory === tag) {
       setSelectedCategory('all')
+      setTagsParams()
     } else {
       setSelectedCategory(tag)
+      setTagsParams({ tags: tag }, { replace: true })
     }
   }
+
+  useEffect(() => {
+    if (tagsParams.get('tags')) {
+      setSelectedCategory(tagsParams.get('tags'))
+    }
+  }, [setSelectedCategory, tagsParams])
 
   return (
     <div className={className}>
