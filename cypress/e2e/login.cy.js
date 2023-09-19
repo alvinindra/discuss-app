@@ -9,7 +9,7 @@
 
 describe('template spec', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3030/login')
+    cy.visit('http://localhost:3030/logins')
   })
   it('should display login page correctly', () => {
     // memverifikasi elemen yang harus tampak pada halaman login
