@@ -30,7 +30,7 @@ export default function DiscussionsComments({ discussDetail }) {
           <div className="flex flex-col">
             <textarea
               className="bg-gray-50 border border-solid border-gray-300 text-gray-900 lg:text-sm rounded-lg block w-full p-2.5"
-              placeholder="..."
+              placeholder="Leave your comment here"
               name="comment"
               rows={5}
               value={comment}
