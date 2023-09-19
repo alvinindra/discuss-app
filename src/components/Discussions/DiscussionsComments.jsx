@@ -33,6 +33,7 @@ export default function DiscussionsComments({ discussDetail }) {
               placeholder="..."
               name="comment"
               rows={5}
+              value={comment}
               required
               onChange={(e) => setComment(e.target.value)}
             ></textarea>

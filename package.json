@@ -9,10 +9,12 @@
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "prettier": "prettier --check --ignore-path .gitignore .",
-    "prettier:fix": "prettier --write --ignore-path .gitignore ."
+    "prettier:fix": "prettier --write --ignore-path .gitignore .",
+    "test": "vitest"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
+    "@testing-library/react": "^14.0.0",
     "@unocss/reset": "^0.52.7",
     "clsx": "^1.2.1",
     "interweave": "^13.1.0",
@@ -39,8 +41,10 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.5",
+    "jsdom": "^22.1.0",
     "prettier": "^2.8.8",
     "unocss": "^0.51.13",
-    "vite": "^4.4.9"
+    "vite": "^4.4.9",
+    "vitest": "^0.34.4"
   }
 }
