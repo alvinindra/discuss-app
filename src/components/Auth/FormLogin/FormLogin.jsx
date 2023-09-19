@@ -46,7 +46,7 @@ export default function FormLogin() {
               name="email"
               id="email"
               className="bg-gray-50 border border-solid border-gray-300 text-gray-900 lg:text-sm rounded-lg block w-full p-2.5"
-              placeholder={'Masukkan email'}
+              placeholder="Your Email"
               required
               onChange={handleFormChange}
             />
@@ -75,9 +75,9 @@ export default function FormLogin() {
             Submit
           </button>
           <p className="text-sm font-light text-gray-500">
-            Belum punya akun?&nbsp;
+            Don't have an account yet?&nbsp;
             <Link to="/register" className="font-medium hover:underline text-blue-400">
-              Registrasi
+              Register
             </Link>
           </p>
         </form>
