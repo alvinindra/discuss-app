@@ -4,6 +4,7 @@ module.exports = {
     amd: true,
     node: true,
     es6: true,
+    'cypress/globals': true,
   },
   extends: [
     'eslint:recommended',
