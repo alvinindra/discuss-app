@@ -32,7 +32,7 @@ export default function FormRegister() {
     event.preventDefault()
 
     if (formRegister.password !== formRegister.passwordConfirm) {
-      toast.error('Kata sandi tidak cocok!', 'danger')
+      toast.error('Your password is not match!', 'danger')
     } else {
       dispatch(asyncRegisterUser({ ...formRegister }))
       navigate('/')
@@ -91,7 +91,7 @@ export default function FormRegister() {
               type="password"
               name="password"
               id="password"
-              placeholder="••••••••"
+              placeholder="Your Password"
               className="bg-gray-50 border border-solid border-gray-300 text-gray-900 lg:text-sm rounded-lg block w-full p-2.5"
               required
               onChange={handleFormChange}
@@ -108,7 +108,7 @@ export default function FormRegister() {
               type="password"
               name="passwordConfirm"
               id="passwordConfirm"
-              placeholder="••••••••"
+              placeholder="Confirm Your Password"
               className="bg-gray-50 border border-solid border-gray-300 text-gray-900 lg:text-sm rounded-lg block w-full p-2.5"
               required
               onChange={handleFormChange}
