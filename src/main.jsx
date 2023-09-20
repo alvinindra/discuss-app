@@ -11,6 +11,9 @@ import 'react-toastify/dist/ReactToastify.css'
 import { StrictMode } from 'react'
 import store from '@/states'
 import { LoadingBar } from 'react-redux-loading-bar'
+import Modal from 'react-modal'
+
+Modal.setAppElement('#root')
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <StrictMode>

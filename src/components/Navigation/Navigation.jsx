@@ -6,12 +6,30 @@ import { useLocation } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import clsx from 'clsx'
 import NavigationMobile from './NavigationMobile'
+import { useState } from 'react'
+import ReactModal from 'react-modal'
+
+const customStylesModal = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+}
 
 export default function Navigation() {
   const auth = useSelector((states) => states.auth)
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const location = useLocation()
+  const [showLogoutConfirmation, setShowLogoutConfirmation] = useState(false)
+
+  const handleLogout = () => {
+    setShowLogoutConfirmation(!showLogoutConfirmation)
+  }
 
   return (
     <>
@@ -28,10 +46,7 @@ export default function Navigation() {
                 <div className="flex ms-auto me-3">
                   <div className="my-auto font-medium">{auth?.name},</div>
                 </div>
-                <span
-                  className="my-auto underline cursor-pointer"
-                  onClick={() => dispatch(asyncUnsetAuthUser())}
-                >
+                <span className="my-auto underline cursor-pointer" onClick={() => handleLogout()}>
                   Logout
                 </span>
               </div>
@@ -68,7 +83,28 @@ export default function Navigation() {
           </Link>
         )}
       </div>
-      <NavigationMobile />
+      <NavigationMobile handleLogout={handleLogout} />
+      <ReactModal
+        style={customStylesModal}
+        isOpen={showLogoutConfirmation}
+        contentLabel="Minimal Modal Example"
+      >
+        <div>Are you sure want to logout?</div>
+        <div className="d-flex mt-4">
+          <button
+            className="font-medium rounded-lg text-sm px-5 py-2.5 text-center border-none cursor-pointer ms-auto"
+            onClick={() => setShowLogoutConfirmation(false)}
+          >
+            Cancel
+          </button>
+          <button
+            className="text-white bg-brand-primary font-medium rounded-lg text-sm ms-4 px-5 py-2.5 text-center border-none cursor-pointer"
+            onClick={() => dispatch(asyncUnsetAuthUser())}
+          >
+            Yes
+          </button>
+        </div>
+      </ReactModal>
     </>
   )
 }

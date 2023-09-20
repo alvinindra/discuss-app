@@ -1,8 +1,8 @@
-import React from 'react'
 import { render } from '@testing-library/react'
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
 import { MemoryRouter } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 export function renderWithProviders(
   ui,
@@ -18,6 +18,10 @@ export function renderWithProviders(
         <MemoryRouter>{children}</MemoryRouter>
       </Provider>
     )
+  }
+
+  Wrapper.propTypes = {
+    children: PropTypes.element,
   }
 
   return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) }

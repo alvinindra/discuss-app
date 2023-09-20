@@ -6,7 +6,6 @@
  */
 
 import '@testing-library/jest-dom'
-import React from 'react'
 import { act, screen } from '@testing-library/react'
 import DiscussionsComments from './DiscussionsComments'
 import userEvent from '@testing-library/user-event'

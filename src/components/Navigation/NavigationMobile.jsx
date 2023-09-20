@@ -1,12 +1,11 @@
-import { asyncUnsetAuthUser } from '@/states/auth/action'
 import clsx from 'clsx'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
-export default function NavigationMobile() {
+export default function NavigationMobile({ handleLogout }) {
   const auth = useSelector((states) => states.auth)
-  const dispatch = useDispatch()
   const navigate = useNavigate()
   const location = useLocation()
 
@@ -45,7 +44,7 @@ export default function NavigationMobile() {
           <button
             type="button"
             className="bg-white border-0 items-center justify-center flex flex-col px-8px pt-16px pb-8px cursor-pointer"
-            onClick={() => dispatch(asyncUnsetAuthUser())}
+            onClick={() => handleLogout()}
           >
             <div className="i-mdi:logout text-24px mb-2 text-gray-500"></div>
             <p className="my-0 fw-400">Logout</p>
@@ -63,4 +62,8 @@ export default function NavigationMobile() {
       </nav>
     </div>
   )
+}
+
+NavigationMobile.propTypes = {
+  handleLogout: PropTypes.func.isRequired,
 }

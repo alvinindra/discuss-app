@@ -75,7 +75,7 @@ export default function FormLogin() {
             Submit
           </button>
           <p className="text-sm font-light text-gray-500">
-            Don't have an account yet?&nbsp;
+            {"Don't have an account yet?"}&nbsp;
             <Link to="/register" className="font-medium hover:underline text-blue-400">
               Register
             </Link>
