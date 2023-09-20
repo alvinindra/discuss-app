@@ -99,7 +99,10 @@ export default function Navigation() {
           </button>
           <button
             className="text-white bg-brand-primary font-medium rounded-lg text-sm ms-4 px-5 py-2.5 text-center border-none cursor-pointer"
-            onClick={() => dispatch(asyncUnsetAuthUser())}
+            onClick={() => {
+              dispatch(asyncUnsetAuthUser())
+              setShowLogoutConfirmation(false)
+            }}
           >
             Yes
           </button>
